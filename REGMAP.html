@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LIS2DH12 Device</title>
+</head>
+<body>
+<div class="content">
+<h1>LIS2DH12 Device</h1>
+<ul>
+  <li> Generated with <a href="https://github.com/uprev-mrt/mrtutils/wiki/mrt-device">MrT Device Utility</a> </li>
+  <li> Bus:  I2C,SPI</li>
+  <li>Datasheet: <a href="http://www.st.com/content/ccc/resource/technical/document/datasheet/12/c0/5c/36/b9/58/46/f2/DM00091513.pdf/files/DM00091513.pdf/jcr:content/translations/en.DM00091513.pdf">http://www.st.com/conten...</a> </li>
+  <li> DigiKey: <a href="https://www.digikey.com/products/en?KeyWords=497-14851-1-ND">497-14851-1-ND</a></li>
+  <li> I2C Address: 0x52</li>
+</ul>
+<hr/>
+<h2>Description: </h2>
+<p>MEMS Digital Output Motion Sensor Ultra Low-Power High Performance 3-Axis "Femto" Accelerometer</p>
+
+<br/>
+
+<div class="regmap" align="center">
+<hr class="section">
+<h2 class="right"> Register Map</h2>
+<div align="right" width="100%">
+  Configuration:
+  <select id="cfgSelect" onchange="setConfig(this)"> 
+    <option value="none">None</option>
+  </select>
+</div>
+<hr class="thick">
+
+
+  <table class="fields" id="regMap" width="95%">
+
+  </table>
+</div>
+
+
+</div>
+<script>
+  
+  var device = {"name": "LIS2DH12", "regs": {"STATUS_AUX": {"name": "STATUS_AUX", "addr": 7, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "n/a", "fields": {}}, "OUT_TEMP": {"name": "OUT_TEMP", "addr": 12, "type": "uint16_t", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Temperature sensor data", "fields": {}}, "WHO_AM_I": {"name": "WHO_AM_I", "addr": 15, "type": "uint8_t", "size": 8, "perm": "R", "default": 51, "hasDefault": true, "desc": "Device identification register", "fields": {"WHO_AM_I": {"mask": 255, "size": 8, "offset": 0, "desc": "Device identification register", "vals": []}}}, "CTRL0": {"name": "CTRL0", "addr": 30, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Control Register 0", "fields": {}}, "TEMP_CFG": {"name": "TEMP_CFG", "addr": 31, "type": "uint8_t", "size": 8, "perm": "RW", "default": 16, "hasDefault": true, "desc": "n/a", "fields": {"TEMP_CFG": {"mask": 255, "size": 8, "offset": 0, "desc": "n/a", "vals": []}}}, "CTRL1": {"name": "CTRL1", "addr": 32, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Control Register 1", "fields": {"X_EN": {"mask": 1, "size": 1, "offset": 0, "desc": "X-axis enable", "vals": []}, "Y_EN": {"mask": 2, "size": 1, "offset": 1, "desc": "Y-axis enable", "vals": []}, "Z_EN": {"mask": 4, "size": 1, "offset": 2, "desc": "Z-axis enable", "vals": []}, "LOW_PWR": {"mask": 8, "size": 1, "offset": 3, "desc": "Low-power mode enable", "vals": []}, "ODR": {"mask": 240, "size": 4, "offset": 4, "desc": "Data rate selection", "vals": [{"name": "PWR_DWN", "val": 0, "desc": "Power-down mode"}, {"name": "1Hz", "val": 1, "desc": "HR/ Normal / Low-power mode (1 Hz)"}, {"name": "10Hz", "val": 8, "desc": "HR/ Normal / Low-power mode (10 Hz)"}, {"name": "25Hz", "val": 9, "desc": "HR/ Normal / Low-power mode (25 Hz)"}, {"name": "50Hz", "val": 64, "desc": "HR/ Normal / Low-power mode (50 Hz)"}, {"name": "100Hz", "val": 65, "desc": "HR/ Normal / Low-power mode (100 Hz)"}, {"name": "200Hz", "val": 72, "desc": "HR/ Normal / Low-power mode (200 Hz)"}, {"name": "400Hz", "val": 73, "desc": "HR/ Normal / Low-power mode (400 Hz)"}, {"name": "1620Hz", "val": 7, "desc": "Low-power mode (1.620 kHz)"}, {"name": "5376Hz", "val": 7, "desc": "HR/ Normal (1.344 kHz) / Low-power mode (5.376 kHz)"}]}}}, "CTRL2": {"name": "CTRL2", "addr": 33, "type": "uint8_t", "size": 8, "perm": "RW", "default": 7, "hasDefault": true, "desc": "Control Register 2", "fields": {"HP_IA1": {"mask": 1, "size": 1, "offset": 0, "desc": "High-pass filter enabled for AOI function on Interrupt 1", "vals": []}, "HP_IA2": {"mask": 2, "size": 1, "offset": 1, "desc": "High-pass filter enabled for AOI function on Interrupt 2", "vals": []}, "HPCLICK": {"mask": 4, "size": 1, "offset": 2, "desc": "High-pass filter enabled for Click function", "vals": []}, "FDS": {"mask": 8, "size": 1, "offset": 3, "desc": "Filtered data selection", "vals": []}}}, "CTRL3": {"name": "CTRL3", "addr": 34, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Control Register 3", "fields": {}}, "CTRL4": {"name": "CTRL4", "addr": 35, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Control Register 4", "fields": {}}, "CTRL5": {"name": "CTRL5", "addr": 36, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Control Register 5", "fields": {}}, "CTRL6": {"name": "CTRL6", "addr": 37, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Control Register 6", "fields": {}}, "REFERENCE": {"name": "REFERENCE", "addr": 38, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Reference value for interrupt generation", "fields": {}}, "STATUS": {"name": "STATUS", "addr": 39, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "n/a", "fields": {}}, "OUT_X": {"name": "OUT_X", "addr": 40, "type": "uint16_t", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "X-axis acceleration data", "fields": {}}, "OUT_Y": {"name": "OUT_Y", "addr": 42, "type": "uint16_t", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Y-axis acceleration data", "fields": {}}, "OUT_Z": {"name": "OUT_Z", "addr": 44, "type": "uint16_t", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Z-axis acceleration data", "fields": {}}, "FIFO_CTRL": {"name": "FIFO_CTRL", "addr": 46, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Fifo Control register", "fields": {}}, "FIFO_SRC": {"name": "FIFO_SRC", "addr": 47, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Fifo status register", "fields": {}}, "INT1_CFG": {"name": "INT1_CFG", "addr": 48, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Interrupt 1 config register", "fields": {}}, "INT1_SRC": {"name": "INT1_SRC", "addr": 49, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Interrupt 1 source register", "fields": {}}, "INT1_THS": {"name": "INT1_THS", "addr": 50, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Interrupt 1 threshold register", "fields": {}}, "INT1_DURATION": {"name": "INT1_DURATION", "addr": 51, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Interrupt 1 duration register", "fields": {}}, "INT2_CFG": {"name": "INT2_CFG", "addr": 52, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Interrupt 2 config register", "fields": {}}, "INT2_SRC": {"name": "INT2_SRC", "addr": 53, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Interrupt 2 source register", "fields": {}}, "INT2_THS": {"name": "INT2_THS", "addr": 54, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Interrupt 2 threshold register", "fields": {}}, "INT2_DURATION": {"name": "INT2_DURATION", "addr": 55, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Interrupt 2 duration register", "fields": {}}, "CLICK_CFG": {"name": "CLICK_CFG", "addr": 56, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Click config", "fields": {}}, "CLICK_SRC": {"name": "CLICK_SRC", "addr": 57, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Click source", "fields": {}}, "CLICK_THS": {"name": "CLICK_THS", "addr": 58, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Click Threshold", "fields": {}}, "TIME_LIMIT": {"name": "TIME_LIMIT", "addr": 59, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Click time limit", "fields": {}}, "TIME_LATENCY": {"name": "TIME_LATENCY", "addr": 60, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Click time latency", "fields": {}}, "TIME_WINDOW": {"name": "TIME_WINDOW", "addr": 61, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Click time window", "fields": {}}, "ACT_THS": {"name": "ACT_THS", "addr": 62, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Activity threshold", "fields": {}}, "ACT_DUR": {"name": "ACT_DUR", "addr": 63, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": false, "desc": "Activity duration", "fields": {}}}, "configs": {"Default": {"WHO_AM_I": 51, "TEMP_CFG": 16, "CTRL2": 7}}, "currentVals": {"WHO_AM_I": 51, "TEMP_CFG": 16, "CTRL2": 7}, "smallestReg": 8, "largestReg": 16};
+
+  var sel =  document.getElementById("cfgSelect");
+
+  for(var k in device.configs){
+    var option = document.createElement("option");
+    option.text = k;
+    option.Value = k;
+    sel.add(option);
+  }
+
+  function checkBit(reg, bit)
+{
+  let resp = {
+    field: {},
+    len: 0,
+    cont : false
+  };
+
+  let next = 1000;
+  bit -=1
+  for(let name in reg.fields)
+  {
+    let field = reg.fields[name];
+    let start = field.offset + (field.size -1);
+    let end = field.offset;
+
+    if(bit == start) //we are at the start of the field 
+    {
+      field.name = name;
+      resp.field = field;
+      resp.len = field.size;
+      resp.cont = false;
+      return resp;
+    }
+    else if( (bit < start) && (bit >= end)) //we are mid-field
+    {
+      field.name = name;
+      resp.field = field;
+      resp.len = field.size - (bit - end);
+      resp.cont = true;
+      return resp;
+    }
+
+    if( (bit > start) && ((bit - start ) < next))
+      next = bit - start;
+  }
+
+  resp.len = next;
+  resp.field = null;
+  return resp;
+}
+
+
+function buildRegMap(tableId, dev)
+{
+
+  let table = document.getElementById(tableId);
+
+  let head = table.insertRow();
+
+  let headcell = document.createElement("th");
+  headcell.textContent = "Register";
+  headcell.setAttribute("width", "10%");
+  head.appendChild(headcell);
+  headcell = document.createElement("th");
+  headcell.textContent ="Addr";
+  headcell.setAttribute("width", "4%");
+  head.appendChild(headcell);
+  headcell = document.createElement("th");
+  headcell.textContent ="RW";
+  headcell.setAttribute("width", "3%");
+  head.appendChild(headcell);
+  let cellWidth = 83 / dev.smallestReg;
+  for(var n = dev.smallestReg; n > 0; n--)
+  {
+    headcell = document.createElement("th");
+    headcell.textContent = (n -1).toString();
+    headcell.setAttribute("width", cellWidth.toString() + "%");
+    head.appendChild(headcell);
+  }
+
+  for(let name in dev.regs)
+  {
+    let reg = dev.regs[name];
+    let rowSpan = reg.size / dev.smallestReg;
+    let row = table.insertRow();
+    let bit = reg.size;
+
+    let head = document.createElement("th");
+    let access = document.createElement("th");
+    let regAddr = document.createElement("th");
+    head.textContent = name;
+    head.setAttribute("rowspan",rowSpan);
+    regAddr.textContent = "x"+reg.addr.toString(16).padStart(4,"0")
+    regAddr.setAttribute("rowspan", rowSpan);
+    access.textContent =reg.perm;
+    access.setAttribute("rowspan",rowSpan);
+
+    row.appendChild(head);
+    row.appendChild(regAddr);
+    row.appendChild(access);
+
+    let count = 0;
+
+    while(bit > 0)
+    {
+      var i = dev.smallestReg;
+      while( i > 0)
+      {
+        let resp = checkBit(reg, bit);
+        if(resp.len > (i))
+          resp.len = i;
+
+        let cell = document.createElement("td");
+
+        if(resp.field != null)
+        {
+          
+          cell.classList.add("bit");
+          cell.setAttribute("id", reg.name + "_bit_"+ (bit -1).toString());
+          let fieldName = resp.field.name;
+          if(resp.len == 1)
+          {
+            fieldName = fieldName.substring(0,5) + "..";
+          }
+
+          let fieldDiv = document.createElement("div");
+          fieldDiv.classList.add("field");
+          fieldDiv.setAttribute("style", "margin-right:-" + ((resp.len -1) * 100).toString() +"%;");
+
+          let fieldAnch = document.createElement("a");
+
+          if( !resp.cont) //this is a new field starting
+          {
+            cell.classList.add("first");
+            fieldAnch.textContent = fieldName
+            if(resp.field.size > resp.len)
+              fieldAnch.textContent +="[" + (resp.field.size -1).toString() +":" + (resp.field.size - resp.len).toString() +"]";
+          }
+          else 
+          {
+            fieldAnch.textContent = resp.field.name 
+            if(resp.field.size > resp.len)
+              fieldAnch.textContent += "[" + ( resp.len -1).toString() +":" + (0).toString() +"]";
+          }
+
+          fieldAnch.setAttribute("data-tt",'');
+          fieldAnch.setAttribute("data-tt-lbl", resp.field.name +"\n\n" +resp.field.desc );
+          let valStr ="\n";
+          resp.field.vals.forEach(val => {
+            valStr+= "b"+val.val.toString(2).padStart(resp.field.size,"0") + " : " + val.desc +"\n";
+          });
+          fieldAnch.setAttribute("data-tt-msg", valStr);
+
+          fieldDiv.appendChild(fieldAnch);
+          cell.appendChild(fieldDiv);
+          row.appendChild(cell);
+
+          for(var a =1 ; a < (resp.len); a++)
+          {
+            cell = document.createElement("td");
+            cell.classList.add("bit");
+            cell.setAttribute("id", name + "_bit_"+ (bit -(a+1)).toString());
+            row.appendChild(cell);
+          }
+
+        }
+        else
+        {
+          cell.classList.add("empty");
+          cell.setAttribute("colspan", resp.len);
+          cell.textContent=".";
+          row.appendChild(cell);
+        }
+
+        i -= resp.len;
+        bit-= resp.len;
+      }
+      if(bit > 0 )
+        row = table.insertRow();
+    }
+  }
+}
+  
+function showSettings(){
+    for(var k in device.currentVals){
+      var v = device.currentVals[k];
+      var bit = device.largestReg - 1; //0 based
+      var mask =0;
+      while(bit >= 0)
+      {
+        mask = (v >> bit) & 1;
+        var element = document.getElementById(k + "_bit_" + bit);
+        
+        if(element)
+        {
+          if(mask)
+          {
+            element.classList.add("one");
+            element.classList.remove("zero");
+          }
+          else
+          {
+            element.classList.remove("one");
+            element.classList.add("zero");
+          }
+
+        }
+
+        bit--;
+      }
+
+    }
+  }
+
+
+  function loadConfig(config)
+  {
+    if(config == 'none')
+    {
+      var bits = document.getElementsByClassName("bit");
+      for(var i = 0; i < bits.length; i++)
+      {
+        bits[i].classList.remove("one");
+        bits[i].classList.remove("zero");
+      }
+
+    }
+    else
+    {
+      //first load defaults 
+      for(var k in device.configs['Default'])
+      {
+        device.currentVals[k] = device.configs['Default'][k];
+      }
+
+      for(var k in device.configs[config])
+      {
+        device.currentVals[k] = device.configs[config][k];
+      }
+
+      showSettings();
+    }
+
+  }
+
+  function setConfig(selectObj)
+  {
+    var value = selectObj.value;
+    loadConfig(value);
+  }
+
+
+  buildRegMap("regMap", device);
+
+</script>
+</body>
+<style>
+table.fixed { table-layout:auto; }
+table.fixed td { overflow:visible; }
+
+table.fields{
+  table-layout:fixed;
+}
+
+body {
+  padding:0;
+}
+
+.content{
+  padding-top: 0;
+  padding-left: 1%;
+  padding-right: 1%;
+  background-color: #fff;
+}
+
+@media print {
+  .regmap {
+    page-break-inside: avoid;
+  }
+  .content{
+    width: 100%;
+  }
+  body{
+    background-color: #fff;
+  }
+}
+
+@media screen {
+  .content{
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    padding-top: 4px;
+    box-shadow: 5px 10px #AAA;
+    padding-bottom: 50px;
+  }
+
+  body{
+    background-color: #ccc;
+    padding: 0;
+  }
+}
+
+html *{
+  font-size: 1em ;
+   color: #000 ;
+  font-family: Arial ;
+}
+
+hr.section {
+  border-style: solid;
+  border-width: 2px;
+  opacity: 1;
+}
+
+
+hr.thick {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #94b2d3;
+  opacity: 1;
+}
+
+hr {
+  opacity: 0.5;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+td {
+  border: 1px solid #000000;
+  text-align: left;
+  padding-top: 6px;
+  vertical-align: top;
+  font-size: 9pt;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.field{
+  text-align: center;
+  padding: 0px;
+  font-weight: bold; 
+}
+
+
+.bit{
+  border-right: 1px dotted #999;
+  border-left: 1px dotted #999;
+  overflow:visible;
+}
+
+.bit.first{
+  border-left: 1px solid black;
+}
+
+td:last-child{
+  border-right: 1px solid black;
+}
+td:first-child{
+  border-left: 1px solid black;
+}
+
+
+td.one{
+  background-color: #acdbac;
+}
+
+td.zero{
+  background-color: #e2af9e;
+}
+
+
+td.empty{
+  background-color: #cccccc;
+  color: #cccccc;
+}
+
+
+
+.desc{
+  font-size: 1.2em;
+}
+
+th {
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 5px;
+  background-color: #94b2d3;
+  font-size: 9pt;
+}
+
+li.val{
+  opacity: 0.6;
+}
+
+h1{
+  font-size: 2.0em;
+}
+
+h2 
+{
+  font-size: 1.3em;
+}
+
+h2.right{
+  text-align: center;
+  font-size: 1.3em;
+}
+
+h3
+{
+  font-size: 1.8em;
+  color: #003366;
+}
+
+h4 
+{
+  font-size: 1.1em;
+  color: #003366;
+}
+
+
+.note{
+  font-style: italic;
+  opacity: 0.6;
+}
+
+a{
+  text-decoration:none;
+}
+
+a:link {
+  color: blue;
+}
+
+/* visited link */
+a:visited {
+  color: blue;
+}
+
+table.fixed tr td:last-child{
+    width:1%;
+    white-space:nowrap;
+}
+
+[data-tt] {
+  position: relative;
+  cursor: help;
+}
+
+[data-tt]:before,
+[data-tt]:after {
+  display: none;
+  position: absolute;
+  top: 0;
+}
+
+[data-tt]:before {
+  border-bottom: .6em solid #09f;
+  border-bottom: .6em solid rgba(0,153,255,0.8);
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  content: "";
+  left: 20px;
+  margin-top: 1em;
+}
+
+[data-tt]:after {
+  background-color: #387aa7;
+  background-color: rgb(162, 197, 221);
+  border: 2px solid #000000;
+  border: 2px solid rgba(0, 0, 0, 1);
+  border-radius: 2px;
+  color: #000000;
+  content: attr(data-tt-lbl) "\A" attr(data-tt-msg);
+  left: 0;
+  width: 300px;
+  overflow: auto;
+  text-align: left;
+  margin-top: 1.5em;
+  padding: 5px 15px;
+  white-space: pre-wrap;
+  z-index: 100;
+}
+
+[data-tt]:hover:after,
+[data-tt]:hover:before {
+  display: block;
+  overflow: auto;
+}
+
+</style>
+</html>

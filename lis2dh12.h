@@ -13,7 +13,7 @@ extern "C"
 #include <stdint.h>
 #include <stdbool.h>
 #include "Devices/RegDevice/register_device.h"
-#include "lis2dh12_dev.h"
+#include "lis2dh12_regs.h"
 
 /*user-block-top-start*/
 /*user-block-top-end*/
@@ -24,41 +24,41 @@ extern "C"
 *******************************************************************************/
 
 typedef struct{
-    mrt_regdev_t mRegDev; //ptr to register base device 
-    mrt_reg_t mStatusAux;  //n/a
-    mrt_reg_t mOutTemp;  //Temperature sensor data
-    mrt_reg_t mWhoAmI;  //Device identification register
-    mrt_reg_t mCtrl0;  //Control Register 0
-    mrt_reg_t mTempCfg;  //n/a
-    mrt_reg_t mCtrl1;  //Control Register 1
-    mrt_reg_t mCtrl2;  //Control Register 2
-    mrt_reg_t mCtrl3;  //Control Register 3
-    mrt_reg_t mCtrl4;  //Control Register 4
-    mrt_reg_t mCtrl5;  //Control Register 5
-    mrt_reg_t mCtrl6;  //Control Register 6
-    mrt_reg_t mReference;  //Reference value for interrupt generation
-    mrt_reg_t mStatus;  //n/a
-    mrt_reg_t mOutX;  //X-axis acceleration data
-    mrt_reg_t mOutY;  //Y-axis acceleration data
-    mrt_reg_t mOutZ;  //Z-axis acceleration data
-    mrt_reg_t mFifoCtrl;  //Fifo Control register
-    mrt_reg_t mFifoSrc;  //Fifo status register
-    mrt_reg_t mInt1Cfg;  //Interrupt 1 config register
-    mrt_reg_t mInt1Src;  //Interrupt 1 source register
-    mrt_reg_t mInt1Ths;  //Interrupt 1 threshold register
-    mrt_reg_t mInt1Duration;  //Interrupt 1 duration register
-    mrt_reg_t mInt2Cfg;  //Interrupt 2 config register
-    mrt_reg_t mInt2Src;  //Interrupt 2 source register
-    mrt_reg_t mInt2Ths;  //Interrupt 2 threshold register
-    mrt_reg_t mInt2Duration;  //Interrupt 2 duration register
-    mrt_reg_t mClickCfg;  //Click config
-    mrt_reg_t mClickSrc;  //Click source
-    mrt_reg_t mClickThs;  //Click Threshold
-    mrt_reg_t mTimeLimit;  //Click time limit
-    mrt_reg_t mTimeLatency;  //Click time latency
-    mrt_reg_t mTimeWindow;  //Click time window
-    mrt_reg_t mActThs;  //Activity threshold
-    mrt_reg_t mActDur;  //Activity duration
+    mrt_regdev_t mRegDev;            //ptr to base register-device 
+    mrt_reg_t mStatusAux;            //n/a
+    mrt_reg_t mOutTemp;              //Temperature sensor data
+    mrt_reg_t mWhoAmI;               //Device identification register
+    mrt_reg_t mCtrl0;                //Control Register 0
+    mrt_reg_t mTempCfg;              //n/a
+    mrt_reg_t mCtrl1;                //Control Register 1
+    mrt_reg_t mCtrl2;                //Control Register 2
+    mrt_reg_t mCtrl3;                //Control Register 3
+    mrt_reg_t mCtrl4;                //Control Register 4
+    mrt_reg_t mCtrl5;                //Control Register 5
+    mrt_reg_t mCtrl6;                //Control Register 6
+    mrt_reg_t mReference;            //Reference value for interrupt generation
+    mrt_reg_t mStatus;               //n/a
+    mrt_reg_t mOutX;                 //X-axis acceleration data
+    mrt_reg_t mOutY;                 //Y-axis acceleration data
+    mrt_reg_t mOutZ;                 //Z-axis acceleration data
+    mrt_reg_t mFifoCtrl;             //Fifo Control register
+    mrt_reg_t mFifoSrc;              //Fifo status register
+    mrt_reg_t mInt1Cfg;              //Interrupt 1 config register
+    mrt_reg_t mInt1Src;              //Interrupt 1 source register
+    mrt_reg_t mInt1Ths;              //Interrupt 1 threshold register
+    mrt_reg_t mInt1Duration;         //Interrupt 1 duration register
+    mrt_reg_t mInt2Cfg;              //Interrupt 2 config register
+    mrt_reg_t mInt2Src;              //Interrupt 2 source register
+    mrt_reg_t mInt2Ths;              //Interrupt 2 threshold register
+    mrt_reg_t mInt2Duration;         //Interrupt 2 duration register
+    mrt_reg_t mClickCfg;             //Click config
+    mrt_reg_t mClickSrc;             //Click source
+    mrt_reg_t mClickThs;             //Click Threshold
+    mrt_reg_t mTimeLimit;            //Click time limit
+    mrt_reg_t mTimeLatency;          //Click time latency
+    mrt_reg_t mTimeWindow;           //Click time window
+    mrt_reg_t mActThs;               //Activity threshold
+    mrt_reg_t mActDur;               //Activity duration
 /*user-block-struct-start*/
 /*user-block-struct-end*/
 }lis2dh12_t;

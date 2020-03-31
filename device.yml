@@ -1,7 +1,7 @@
 ---
 name: LIS2DH12
 category: Device
-description: Optical Time of Flight distance sensor 
+description: MEMS Digital Output Motion Sensor Ultra Low-Power High Performance 3-Axis "Femto" Accelerometer
 datasheet: http://www.st.com/content/ccc/resource/technical/document/datasheet/12/c0/5c/36/b9/58/46/f2/DM00091513.pdf/files/DM00091513.pdf/jcr:content/translations/en.DM00091513.pdf
 mfg: STMicroelectronics
 mfg_pn: LIS2DH12TR
